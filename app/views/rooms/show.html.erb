@@ -1,10 +1,161 @@
-<h1>Chat room</h1>
-<div id="messages">
-<%= render @messages %>
+<center><h1>Chat Room</h1></center>
+
+
+<button class="btn btn-success" id="c" style="display:none; "onclick="return clo()">Close Conversation History</button>
+<button class="btn btn-success" id="o" onclick="return bac()"> Conversation History</button>
+
+<div id="his" style="display:none;">
+
+
+
+	<table>
+ 
+<% @messages.each do |a| %>
+
+  <tr>
+    <td><%= a.content.to_s.html_safe %></td>
+   
+  </tr>
+  
+
+
+
+
+<% end %>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<center><h1 style="color:green;">LIVE CHAT</h1></center>
+<div id="messages" >
+	
+<%#= render @messages %>
 </div>
 
 <form>
   <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
+  <input type="text" style="height:100px;" data-behavior="room_speaker" id="jam" class="form-control" onkeypress="return valid(event)" placeholder="Type and Enter" >
+  <input type="text" style="display:none;" id="jam1" value=<%=session[:name]%>  >
 </form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	
+function bac(){
+
+
+document.getElementById("his").style.display="block";
+document.getElementById("o").style.display="none";
+
+document.getElementById("c").style.display="block";
+
+
+
+
+}
+function clo(){
+
+
+document.getElementById("his").style.display="none";
+document.getElementById("c").style.display="none";
+
+document.getElementById("o").style.display="block";
+
+
+
+
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+ <script>
+    function valid(event) {
+  var key = event.keyCode;
+ if (key==13){
+
+var a= document.getElementById("jam1").value;
+ var b=document.getElementById("jam").value;
+ document.getElementById("jam").value='';
+ var c=document.getElementById("jam").value=a.bold()+"   "+b;
+
+
+alert(c);
+
+
+
+ }
+};
+</script>
+
+
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>

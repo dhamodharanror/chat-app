@@ -113,7 +113,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redis (4.1.2)
+    redis (3.3.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -165,7 +165,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma
   rails (>= 5.0.0.beta3, < 5.1)
-  redis
+  redis (~> 3.0)
   sass-rails (~> 5.0)
   turbolinks (~> 5.x)
   tzinfo-data

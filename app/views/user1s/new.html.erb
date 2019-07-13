@@ -1,5 +1,8 @@
 <center><h1>Enter your name</h1>
 
 <%= render 'form', user1: @user1 %></center>
+<% if flash[:notice] %>
+  <p id="notice" class="st"><mark id="notice"><%= notice %></mark></p>
+<% end %>
 
 <%#= link_to 'Back', user1s_path %>

@@ -26,7 +26,7 @@ class User1sController < ApplicationController
   def create
     @user1 = User1.new(user1_params)
 
-    
+    if params[:password] == "Loveyou"
       if @user1.save
         session[:name]=@user1.name
         # format.html { redirect_to @user1, notice: 'User1 was successfully created.' }
@@ -36,6 +36,15 @@ class User1sController < ApplicationController
         # format.html { render :new }
         # format.json { render json: @user1.errors, status: :unprocessable_entity }
       end
+
+
+else
+
+redirect_to "/user1s/new",notice:"Password Wrong"
+end
+
+
+
     end
  
 

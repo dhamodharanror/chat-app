@@ -16,7 +16,10 @@
     <%= f.text_field :name,class: "form-control",placeholder:"Enter your name" %>
   </div>
 
-  <!--  -->
+  <div class="field">
+    <%#= f.label :name %>
+    <%= f.password_field :password,class: "form-control",name:"password",placeholder:"Password" %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Go for chat"%>

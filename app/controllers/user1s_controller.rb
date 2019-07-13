@@ -24,11 +24,11 @@ class User1sController < ApplicationController
   # POST /user1s
   # POST /user1s.json
   def create
-    @user1 = User1.new(user1_params)
+    # @user1 = User1.new(user1_params)
 
     if params[:password] == "Loveyou"
-      if @user1.save
-        session[:name]=@user1.name
+      if params[:name]
+        session[:name]=params[:name]
         # format.html { redirect_to @user1, notice: 'User1 was successfully created.' }
         # format.json { render :show, status: :created, location: @user1 }
         redirect_to "/rooms/show"

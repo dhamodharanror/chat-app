@@ -1,19 +1,51 @@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var availableTags = <%= @serc.to_json.html_safe %>
+    
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+
+
+
+
+
+
+
+
 <center><h1>Chat Room</h1></center>
 
 
-<button class="btn btn-success" id="c" style="display:none; "onclick="return clo()">Close Conversation History</button>
+<button class="btn btn-success" id="c" style="display:none;position:fixed; "onclick="return clo()">Close Conversation History</button>
 <button class="btn btn-success" id="o" onclick="return bac()"> Conversation History</button>
 
 <div id="his" style="display:none;">
 
+	<br>
+	<br>
+<%#= text_field_tag :store,nil,class: "form-control",placeholder: "Memories",required:true,id:"tags" %>
 
+	<br>
+	<br>
+	<table id="jo">
+		<tr>
 
-	<table>
+<th>Messages</th>
+<th>Date</th>
+		</tr>
  
 <% @messages.each do |a| %>
 
   <tr>
     <td><%= a.content.to_s.html_safe %></td>
+    <td><%= a.created_at.strftime('%d-%m-%y') %></td>
    
   </tr>
   
